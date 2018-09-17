@@ -1,0 +1,31 @@
+<div class="container">
+
+  <form action="" class="search-form">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]= "userName" name= "userName" (keyup)= "findProfile()">
+    </div>
+  </form>
+
+  <div class="img" *ngFor="let user of users">
+  <ul>
+    <li>
+      {{user.name}} <small>({{user.login}})</small>
+      ,<span *ngIf="user.company">Works at {{user.company}}</span> in {{user.location}}
+    </li>
+    <li *ngIf= "user.bio">
+      {{user.bio}}
+    </li>
+    <li *ngIf= "user.hireable">
+      Available for Hire
+    </li>
+    <li *ngIf= "user.blog">
+      {{user.blog}}
+    </li>
+    <li *ngIf= "user.email">
+      {{user.email}}
+    </li>
+  </ul>
+    <img src="{{user.avatar_url}}" alt=" image">
+  </div>
+
+</div>
